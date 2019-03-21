@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+form {
+  display:flex;
+  flex-direction: colum;
+  width:90%;
+  margin: 40px auto;
+}
+
+/*
+[ng-reflect-router-link] {
+  cursor: pointer;
+}
+
+[ng-reflect-router-link]:focus {
+  outline: 0!important;
+}
+*/
+
+mat-spinner{
+  position: fixed;
+  bottom:50%;
+  right:50%;
+  /*
+  bottom: 45%;
+  left: 35%;
+  */
+}
+

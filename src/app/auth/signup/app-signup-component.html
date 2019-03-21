@@ -1,0 +1,66 @@
+<form class="" novalidate [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input
+    matInput
+    placeholder="Full Name"
+    formControlName="fullName"
+    id="fullName"
+    >
+    <mat-icon matPrefix>person</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+    matInput
+    placeholder="Email"
+    formControlName="email"
+    id="email"
+    required>
+    <!--
+    <mat-error *ngIf= "email.invalid"> {{ getErrorMessage() }} </mat-error>
+    -->
+    <mat-icon matPrefix>mail_outline</mat-icon>
+  </mat-form-field>
+
+
+<div class="passwords " [ngClass]="{'dont-check':passwordNotCheck}">
+
+  <p *ngIf="passwordNotCheck">Passwords do not match</p>
+
+  <mat-form-field>
+    <input
+    [type]="hide ? 'password' : 'text'"
+    matInput
+    placeholder="Enter your password"
+    formControlName="password"
+    id="password">
+
+    <mat-icon matPrefix>lock</mat-icon>
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input
+      [type]="hide ? 'password' : 'text'"
+      matInput
+      placeholder="Repeat your password"
+      formControlName="passwordConfirmation"
+      id="passwordConfirmation">
+
+      <mat-icon matPrefix>lock</mat-icon>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </mat-form-field>
+
+</div>
+
+  <button type="submit" mat-raised-button color="accent">Login</button>
+  <pre>{{signupForm.value | json}}</pre>
+
+</form>
+
+<p>
+    Already have an accout?
+    <a mat-button color="primary" [routerLink]="['/signin']"> Login</a>
+</p>
+
